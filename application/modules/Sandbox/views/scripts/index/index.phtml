@@ -1,0 +1,35 @@
+<script>
+jQuery.ajax({
+  url: '/Sandbox/index/pegarjson',
+  success: function(data) {
+    jQuery('#state').html(data);
+  }
+});
+
+function update_test()
+{
+	var uf = jQuery('#state').val();
+	jQuery.ajax({
+	  url: '/Sandbox/index/pegarjson/uf/' + uf,
+	  success: function(data) {
+	    jQuery('#teste').html(data);
+	  }
+});
+}
+
+jQuery(document).ready(function(){
+	jQuery('#state').change(
+			function()
+			{ 
+				update_test();
+			}
+	);
+	
+	jQuery('#teste').change(
+			function()
+			{ 
+				alert('teste');	
+			}
+	);
+});
+</script>
