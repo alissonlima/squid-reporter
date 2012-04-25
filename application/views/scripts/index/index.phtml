@@ -1,43 +1,79 @@
+<h1>Mais acessados</h1>
+
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+<script type="text/javascript">
+
+function load_graph_slices(element_id,title, rows)
+{
+ // Load the Visualization API and the piechart package.
+      google.load('visualization', '1.0', {'packages':['corechart']});
+
+      // Set a callback to run when the Google Visualization API is loaded.
+      google.setOnLoadCallback(drawChart);
+
+      // Callback that creates and populates a data table,
+      // instantiates the pie chart, passes in the data and
+      // draws it.
+      function drawChart() {
+
+        // Create the data table.
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', 'Topping');
+        data.addColumn('number', 'Slices');
+        data.addRows(rows);
+
+        // Set chart options
+        var options = {'title': title,
+                       'width':400,
+                       'height':300};
+
+        // Instantiate and draw our chart, passing in some options.
+        var chart = new google.visualization.PieChart(document.getElementById(element_id));
+        chart.draw(data, options);
+      }
+}
+
+rows_24 = [
+          ['Google', 3],
+          ['Facebook', 1],
+          ['Playboy', 1],
+          ['Linux.com', 1],
+          ['OpenBSD.org', 2]
+        ]
+
+rows_week = [
+          ['FaleComEla', 3],
+          ['Microsoft', 2],
+          ['Debian', 1],
+        ]
+
+rows_month = [
+          ['FaleComEla', 1],
+          ['Microsoft', 2],
+          ['Debian', 4],
+        ]
+
+
+load_graph_slices('chart_div_24','Sites mais acesados nas ultimas 24hs', rows_24);
+load_graph_slices('chart_div_week','Sites mais acesados na ultima semana', rows_week);
+load_graph_slices('chart_div_month','Sites mais acesados no ultimo mes', rows_month);
+
+</script>
 <style>
-    a:link,
-    a:visited
-    {
-        color: #0398CA;
-    }
+#layout
+{
 
-    span#zf-name
-    {
-        color: #91BE3F;
-    }
+}
 
-    div#welcome
-    {
-        color: #FFFFFF;
-        background-image: url(http://framework.zend.com/images/bkg_header.jpg);
-        width:  600px;
-        height: 400px;
-        border: 2px solid #444444;
-        overflow: hidden;
-        text-align: center;
-    }
+#layout .col
+{
+	width: 33%;
+	float: left;
+}
 
-    div#more-information
-    {
-        background-image: url(http://framework.zend.com/images/bkg_body-bottom.gif);
-        height: 100%;
-    }
 </style>
-<div id="welcome">
-    <h1>Welcome to the <span id="zf-name">Zend Framework!</span></h1>
-
-    <h3>This is your project's main page</h3>
-
-    <div id="more-information">
-        <p><img src="http://framework.zend.com/images/PoweredBy_ZF_4LightBG.png" /></p>
-        <p>
-            Helpful Links: <br />
-            <a href="http://framework.zend.com/">Zend Framework Website</a> |
-            <a href="http://framework.zend.com/manual/en/">Zend Framework Manual</a>
-        </p>
-    </div>
+<div id="layout">
+<div class="col"><div id="chart_div_24"></div></div>
+<div class="col"><div id="chart_div_week"></div></div>
+<div class="col"><div id="chart_div_month"></div></div>
 </div>
