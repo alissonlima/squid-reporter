@@ -1,0 +1,108 @@
+<!--
+
+<?php echo $this->doctype()?>
+<html lang="pt-br">
+<head>
+	<meta charset="UTF-8">
+<?php
+$this->headTitle()->append('Layout e módulos - Zend Framework');
+$this->headTitle()->setSeparator(' - ');
+echo $this->headTitle(),PHP_EOL;
+$this->headMeta()->headMeta ('Matias Rezende', 'author');
+
+$this->headLink()->setSeparator(PHP_EOL)
+		 ->prependStylesheet($this->baseUrl('estilos/estilo.css'));
+
+$this->headScript ()->setSeparator(PHP_EOL)
+		    ->prependFile ($this->baseUrl('scripts/jquery/jquery-1.6.1.min.js') );
+
+echo $this->headMeta(),PHP_EOL;
+echo $this->headLink(),PHP_EOL;
+echo $this->headScript();
+?>
+</head>
+<body>
+	<div id="wrapper">
+		<div id="content">
+			<h1>Modulo default</h1>
+			<?php echo $this->layout()->content;?>
+		</div><!-- /content -->
+	</div><!-- /wrapper 
+</body>
+</html>
+
+
+<?=$this->doctype('XHTML1_TRANSITIONAL')?>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pt-br">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+      <base href="http://<?=$_SERVER['HTTP_HOST'] . $this->baseUrl()?>/" />
+ 
+      <link type="text/css" rel="stylesheet" href="css/stylesheet.css" />
+ 
+      <title>Squid Log </title>
+   </head>
+   <body>
+      <div id="main">
+         <div id="header">
+            <h1>Squid Log</h1>
+         </div>
+         <div id="sidebar">
+            <ul>
+	<navigation>
+	<?php echo $this->navigation()->menu()->setMaxDepth(1); ?>
+	</navigation>
+            </ul>
+         </div>
+<div class="breadcrumbs">
+<?php
+echo $this->navigation()->breadcrumbs()->setMinDepth(0)->setLinkLast(true)->setSeparator(" > ");
+?>
+</div>
+         <div id="content">
+            <?=$this->layout()->content?>
+         </div>
+      </div>
+   </body>
+</html>
+-->
+
+
+<?php echo $this->doctype() ?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  
+ <title>Squid Logs</title>
+<?php 
+#echo $this->headLink()->appendStylesheet('/css/global.css') 
+echo $this->headScript(); 
+echo "\n";
+echo $this->headLink();
+?>
+</head>
+<body">
+<header>
+	<div id="header-logo">
+		<b>Squid Logs</b>
+	</div>
+	<navigation>
+	<?php echo $this->navigation()->menu()->setMaxDepth(1); ?>
+	</navigation>
+	
+</div>
+</header>
+<div id="content">
+
+<div class="breadcrumbs">
+<?php
+echo $this->navigation()->breadcrumbs()->setMinDepth(0)->setLinkLast(true)->setSeparator(" > ");
+?>
+</div>
+ 
+<?php echo $this->layout()->content ?>
+ 
+</div>
+<footer>Squid Logs &copy; 2012</footer>
+</body>
+</html>

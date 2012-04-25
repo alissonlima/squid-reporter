@@ -1,0 +1,100 @@
+.update 
+{
+    display: block;
+    color: black;
+    height: 16px;
+    padding-left: 20px;
+    background-image: url('images/icons/accessories-text-editor.png');
+    background-repeat: no-repeat;
+} 
+
+.update:hover
+{
+    display: block;
+    color: black;
+    color: red;
+    background-image: url('images/icons/accessories-text-editor_hover.png');
+} 
+
+.delete 
+{
+    display: block;
+    color: black;
+    height: 16px;
+    padding-left: 20px;
+    background-image: url('images/icons/editdelete-hover.png');
+    background-repeat: no-repeat;
+} 
+
+.delete:hover 
+{
+    display: block;
+    color: red;
+} 
+
+.relatorioc 
+{
+    display: block;
+    color: black;
+    height: 16px;
+    padding-left: 20px;
+    background-image: url('images/icons/accessories-text-editor.png');
+    background-repeat: no-repeat;
+} 
+
+.relatorioc:hover
+{
+    display: block;
+    color: black;
+    color: red;
+    background-image: url('images/icons/accessories-text-editor_hover.png');
+} 
+
+.cadastrar 
+{
+    display: block;
+    color: black;
+    height: 16px;
+    padding-left: 20px;
+    background-image: url('images/icons/list-add.png');
+    background-repeat: no-repeat;
+} 
+
+.cadastrar:hover
+{
+    display: block;
+    color: black;
+    color: red;
+    background-image: url('images/icons/list-add_hover.png');
+}
+
+
+.report
+{
+        border: 1px solid black;
+}
+
+.report thead td
+{
+        border: 1px solid #253571;
+	background-color: #555555;
+	background-color:  #0299c7; 
+	background-color:  #464646; 
+        color: white;
+        font-weight: bold;
+        text-align: center;
+        padding: 4px;
+        background-image: url('img/menu.png');
+}
+
+.report tbody td
+{
+        border: 1px solid #CCCCCC;
+        background-color: #EEEEEE;
+	    padding: 2px;
+}
+
+fieldset
+{
+	border: 1px solid #CCCCCC;
+}

@@ -1,0 +1,47 @@
+#channel-streamming
+{
+	float: right;
+	border: 1px solid #CCCCCC;
+	padding: 5px;
+}
+
+#channel-streamming h2
+{
+	color: black;
+	font-size: 14px;
+	text-align: center;
+	background-color: #CCCCCC;
+	padding: 5px;
+	margin: 0px;
+	width: 200px;
+}
+
+#channel-streamming table
+{
+	border: 1px solid #CCCCCC;
+	width: 100%;
+}
+
+#channel-streamming table thead tr td
+{
+	background-color: #CCCCCC;
+	color: black;
+	text-align: center;
+	padding: 5px;
+}
+
+#channel-streamming #add
+{
+	background-color: #CCCCCC;
+	float: right;
+	padding: 5px;
+	color: black;
+	text-decoration: none;
+}
+
+#channel-streamming #add:hover
+{
+	background-color: #000000;
+	color: white;
+}
+

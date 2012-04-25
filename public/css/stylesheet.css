@@ -1,0 +1,8 @@
+* { margin: 0px; padding: 0px; }
+body { background: #444; }
+
+div#main { margin: auto; width: 900px; background: #FFF; padding: 10px; overflow: auto; }
+div#header { background-color: #666; color: #FFF; margin-bottom: 10px; padding: 5px; }
+div#sidebar { width: 200px; float: left; }
+div#sidebar ul { margin-left: 10px; }
+div#content { width: 700px; float: right; }

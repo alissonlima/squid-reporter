@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configdata>
+  <nav>
+    <home>
+      <label>inicial</label>
+      <controller>index</controller>
+      <action>index</action>
+    </home>
+<!-- Cadastro -->
+    <schedule-1>
+      <label>Cadastro</label>
+      <module>Cadastro</module>
+      <controller>index</controller>
+      <action>index</action>
+      <pages>
+        <schedule-usuario>
+          <label>Usuarios</label>
+          <module>Cadastro</module>
+          <controller>index</controller>
+          <action>index</action>
+        </schedule-usuario>
+        <schedule-grupo>
+          <label>Grupo</label>
+          <module>Cadastro</module>
+          <controller>Group</controller>
+          <action>index</action>
+        </schedule-grupo>
+        <schedule-computer>
+          <label>Computer</label>
+          <module>Cadastro</module>
+          <controller>Computer</controller>
+          <action>index</action>
+        </schedule-computer>
+      </pages>
+    </schedule-1>
+<!-- Relatorios -->
+    <schedule-2>
+      <label>Relatorios</label>
+      <module>Relatorio</module>
+      <controller>index</controller>
+      <action>index</action>
+      <pages>
+        <Relatorios-1>
+          <label>Usuarios</label>
+            <module>Relatorio</module>
+             <controller>index</controller>
+              <action>index</action>
+        </Relatorios-1>
+        <Relatorios-2>
+          <label>Grupos</label>
+            <module>Relatorio</module>
+             <controller>group</controller>
+             <action>index</action>
+        </Relatorios-2>
+        <Relatorios-3>
+        <label>Mensal</label>
+          <module>?????</module>
+          <controller>?????</controller>
+          <action>index</action>
+        </Relatorios-3>
+      </pages>
+    </schedule-2>
+<!-- Ajuda -->
+    <schedule-3>
+      <label>Help</label>
+      <module>Help</module>
+      <controller>index</controller>
+      <action>index</action>
+    </schedule-3>
+  </nav>
+</configdata>

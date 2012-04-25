@@ -1,0 +1,188 @@
+body, td, div, p
+{
+	font-family: Verdana, Arial, Helvetica, Sans-Serif;
+	font-size: 11px;
+}
+
+header
+{
+	width: 100%;
+	height: 23px;
+	background-color: #464646; 
+	border-bottom: 1px solid black;
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	padding-top: 0px;
+	padding-left: 10px;
+	padding-right: 25px;
+
+	-moz-box-shadow: 0px 4px 5px #888;
+	-webkit-box-shadow: 0px 4px 5px #888;
+	box-shadow: 0px 4px 5px #888;
+}
+
+
+
+footer
+{
+	width: 100%;
+	height: 18px;
+	background-color: #464646; 
+	border-top: 1px solid black;
+	position: fixed;
+	bottom: 0px;
+	left: 0px;
+	color: white;	
+
+	-moz-box-shadow: 0px -4px 5px #888;
+	-webkit-box-shadow: 0px -4px 5px #888;
+	box-shadow: 0px -4px 5px #888;
+	text-align: center;
+	padding-top: 3px;
+}
+
+#header-logo
+{
+	padding: 6px;
+	color: white;
+}
+
+#content
+{
+	margin-top: 35px;
+	margin-bottom: 30px;
+}
+
+header navigation
+{
+/*
+	float: right;
+*/
+}
+
+ul.sf-menu
+{
+	padding-left: 100px;
+}
+
+header #logged-in
+{
+	float: right;
+	padding-right: 25px;
+}
+
+
+header #header-logo 
+{
+	float: left;
+}
+
+#logged-in
+{
+	color: white;
+	padding: 3px;
+}
+
+#logged-in a
+{
+	color: white;
+}
+
+
+/* MENU */
+
+.sf-menu a {
+        border-left:    0px solid #fff;
+        border-top:             0px solid #CFDEFF;
+        padding:                6px;
+        text-decoration:none;
+	color: white;
+}
+.sf-menu a:hover 
+{
+	color: black;
+}
+
+.sf-menu a, .sf-menu a:visited  { /* visited pseudo selector so IE6 applies text colour*/
+        color:                  #000000;
+	color: white;
+}
+.sf-menu li {
+        background:            	#464646; 
+}
+.sf-menu li li {
+        background:             #464646;
+}
+.sf-menu li li li {
+        background:             #464646;
+}
+.sf-menu li:hover, .sf-menu li.sfHover,
+.sf-menu a:focus, .sf-menu a:hover, .sf-menu a:active {
+        background:             #EEEEEE;
+	color: 			black;
+        outline:                0;
+}
+
+
+/* FORMS */
+.input-form {
+	border: 1px solid #CCCCCC;
+	background-color: #EEEEEE;
+}
+
+textarea {
+	border: 1px solid #CCCCCC;
+	background-color: #EEEEEE;
+}
+
+#description 
+{
+	border: 1px solid #CCCCCC;
+	background-color: #EEEEEE;
+}
+
+/* TABBED MENU */
+#tabbed-area
+{
+        background-color: #E5E5E5;
+}
+
+#tabbed-area ul.menu {
+    padding:0px;
+    margin:0px;
+    float: left;
+    background-color:#EDEDED;
+    list-style:none;
+}
+
+#tabbed-area ul.menu li { display: inline; }
+
+#tabbed-area ul.menu li a {
+    padding: 2px 10px;
+    float:left;
+    background-color:#EDEDED;
+    background-color: #828282;
+    font-weight: bold;
+    color: #FFFFFF;
+    font-size: 12px;
+    text-decoration: none;
+}
+
+#tabbed-area ul.menu li a:hover {
+    background-color:#D6D6D6;
+    color: #6D6D6D;
+}
+
+#tabbed-area ul.menu li a.channel-active {
+    background-color: black;
+    background-color: #E5E5E5;
+    color: black;
+}
+
+#tabbed-area .content
+{
+	padding: 15px;
+	background-color: white;
+    	border: 1px solid #828282;
+}

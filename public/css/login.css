@@ -1,0 +1,63 @@
+body, td, p, div, a, li
+{
+	font-family: Verdana, Arial, Helvetica, Sans-Serif;
+	font-size: 9px;
+}
+
+#login-form                                                                                                                                                                         
+{                                                                                                                                                                                   
+	border: 0px solid black;                                                                                                                                                        
+	background-image: url('images/logo_login.png');                                                                                                                             
+	background-repeat: no-repeat;                                                                                                                                                   
+	width: 250px;                                                                                                                                                                   
+	min-height: 100px;                                                                                                                                                              
+	position: absolute;                                                                                                                                                              
+	padding-top: 180px;
+	top: 50%;
+	left: 50%;
+	margin-left: -180px;
+	margin-top: -170px;
+}                                                                                                                                                                                   
+
+#login                                                                                                                                                                              
+{                                                                                                                                                                                   
+	position: absolute;                                                                                                                                                             
+	top: 0px;                                                                                                                                                                       
+	left: 0px;                                                                                                                                                                      
+	right: 0px;                                                                                                                                                                     
+	bottom: 0px;                                                                                                                                                                    
+	border: 0px solid blue;
+}                                                                                                                                                                                   
+
+#login-form form
+{
+	padding: 10px;
+	border: 0px solid red;
+}
+
+#login-form h1
+{
+	color: white;
+	background-color: black;
+	text-align: center;
+	margin-top: 0px;
+	padding: 3px;
+	font-size: 0px;
+	height: 0px;
+	visibility: hidden;
+}
+
+.form_input
+{
+	border: 1px solid #CCCCCC;
+	background-color: #EEEEEE;
+}
+
+.botao_salvar
+{
+	border: 1px solid #EEEEEE;
+	background-color: #0299c7;
+	background-color: #464646; 
+	color: white;
+	font-weight: bold;
+}
