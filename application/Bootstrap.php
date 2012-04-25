@@ -48,7 +48,7 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
 		$this->_view->headLink()->appendStylesheet("/css/global.css");
 
 		$this->_view->addHelperPath(APPLICATION_PATH . '/views/helpers', "Application_View_Helper");
-		$this->_view->addHelperPath('RedeCNT/View/Helper/', 'RedeCNT_View_Helper');
+		$this->_view->addHelperPath('Reporter/View/Helper/', 'Reporter_View_Helper');
 	}
 
 }
