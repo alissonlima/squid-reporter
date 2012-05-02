@@ -32,7 +32,7 @@ class Cadastro_GroupController extends Zend_Controller_Action
 				
 				$do = new Cadastro_Model_DbTable_Grupo();
 				$do->insert($data);
-				return $this->_helper->redirector('index');
+				return $this->_helper->redirector('list');
 			}
 		}
 
@@ -67,7 +67,7 @@ class Cadastro_GroupController extends Zend_Controller_Action
 			{
 				$data = $form->getValues();
 				$do->update($data);
-				return $this->_helper->redirector('index');
+				return $this->_helper->redirector('list');
 			}
 		}
 		echo $form;
@@ -115,40 +115,75 @@ class Cadastro_GroupController extends Zend_Controller_Action
 
 		}
 */
+               		// action body
+		$form = new Cadastro_Form_Newgroup();
+		$request = $this->getRequest();
+
+		if ($this->getRequest()->isPost()) 
+		{
+			if ($form->isValid($request->getPost())) 
+			{
+				
+				return $this->_helper->redirector('add');
+			}
+		}
+
+		$this->view->form = $form;
+                
 		$sql  = "SELECT ";
  		$sql .= "usergroup.id, ";
-		$sql .= "CONCAT('<a href=\"/Cadastro/Group/list-user/username/',id,'\">',usergroup.name,'</a>') AS name, ";
+		$sql .= "CONCAT('<a href=\"/Cadastro/Group/listuser/name/',name,'\">',name,'</a>') AS name, ";
 		$sql .= "usergroup.comment AS Obs, ";
 		$sql .= "CONCAT('<a href=\"/Cadastro/Group/update/id',id,'\">editar</a>') AS editar, ";
 		$sql .= "CONCAT('<a href=\"/Cadastro/Group/delete/id/',id,'\">apagar</a>') AS apagar ";
-		$sql .= "FROM `usergroup` ";
+		$sql .= "FROM usergroup ";
 	
 		$grid = new Application_Model_Grid();
 		$this->view->grade =  $grid->MontarGrade($sql);
-                echo "<a href=\"/Cadastro/Group/index\">Retornar</a>";
+                
          }
 
-         public function listUserAction()
+         public function listuserAction()
          {
 
-               $username = $this->_request->getParam('id');
-               echo "<h2>Usuario: {$username}</h2>\n";
-                        
+               $usergroup = $this->_request->getParam('name');            
+
+               echo "<h3>Grupo: {$usergroup} </h3>\n";
+             # echo "<h3>Usuario: {$usergroup}</h3>\n";
+               
+
                $sql = "SELECT ";
-               $sql.= "id AS id, ";
-               $sql.= "usuario.user AS usuario";
+                
+                $sql .= "usr.fullname AS 'nome', ";
+		$sql .= "usr.user AS 'login', ";
+#		$sql .= "usuario.password, ";
+		$sql .= "usr.email AS 'e-mail', ";
 
-               $sql .= "FROM `usergroup` ";
-              
-	       $sql .= "WHERE id_group = '{$username}' ";                             
-	       
-               $sql.= "GROUP BY usuario ";
-               $sql.= "ORDER BY id ";
-               $sql.= "DESC LIMIT 100 ";
+                $sql .= "DATE_FORMAT(date,'%d/%m/%Y') AS 'Cadastrado em:' , ";
+		$sql .= "CONCAT('<a href=\"/Cadastro/Index/update/id/',usr.id,'\">editar</a>') AS editar, ";
+		$sql .= "CONCAT('<a href=\"/Cadastro/Index/delete/id/',usr.id,'\">apagar</a>') AS apagar ";
 
-               $grid = new Application_Model_Grid();
+               $sql.= "FROM usuario AS usr JOIN usergroup AS grp ON (grp.id = usr.id_group)";
+               $sql.= "WHERE name = '{$usergroup}' ";  
+
+
+
+	       $grid = new Application_Model_Grid();
 	       echo $grid->MontarGrade($sql); 
 
+               	$form = new Cadastro_Form_retorn();
+		$request = $this->getRequest();
+
+		if ($this->getRequest()->isPost()) 
+		{
+			if ($form->isValid($request->getPost())) 
+			{
+				
+				return $this->_helper->redirector('list');
+			}
+		}
+
+		echo $form;
 
 
          }

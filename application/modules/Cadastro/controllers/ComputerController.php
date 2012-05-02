@@ -32,7 +32,7 @@ class Cadastro_ComputerController extends Zend_Controller_Action
 				
 				$do = new Cadastro_Model_DbTable_Computer();
 				$do->insert($data);
-				return $this->_helper->redirector('index');
+				return $this->_helper->redirector('list');
 			}
 		}
 
@@ -68,7 +68,7 @@ class Cadastro_ComputerController extends Zend_Controller_Action
 				$data = $form->getValues();
 				//$data['password'] = md5($password);
 				$do->update($data);
-				return $this->_helper->redirector('index');
+				return $this->_helper->redirector('list');
 			}
 		}
 		echo $form;
@@ -126,7 +126,20 @@ class Cadastro_ComputerController extends Zend_Controller_Action
 		$sql .= "FROM `computer` JOIN usergroup ON ( computer.id_group = usergroup.id ) ";
 */
 
+                		// action body
+		$form = new Cadastro_Form_Newcomputer();
+		$request = $this->getRequest();
 
+		if ($this->getRequest()->isPost()) 
+		{
+			if ($form->isValid($request->getPost())) 
+			{
+				
+				return $this->_helper->redirector('add');
+			}
+		}
+
+		$this->view->form = $form;
 
                 $sql  = " SELECT ";
                 $sql .= " cpu.name AS Modelo, ";
@@ -140,7 +153,7 @@ class Cadastro_ComputerController extends Zend_Controller_Action
 
 		$grid = new Application_Model_Grid();
 		$this->view->grade =  $grid->MontarGrade($sql);
-                echo "<a href=\"/Cadastro/Computer/index\">Retornar</a>";
+           
     }
     public function listLogAction()
     {
@@ -201,7 +214,7 @@ class Cadastro_ComputerController extends Zend_Controller_Action
 	        echo "<h3>IP: {$ip}</h3>\n";
                 
                 $sql  = " SELECT ";
-               #$sql .= " cpu.id AS IP, ";
+                $sql .= " cpu.id AS IP, ";
                 $sql .= " cpu.name AS Modelo, ";
                 $sql .= " usr.user AS name, ";
                 $sql .= " grp.name AS grupo ";                

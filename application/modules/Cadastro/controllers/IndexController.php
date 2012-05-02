@@ -13,8 +13,9 @@ class Cadastro_IndexController extends Zend_Controller_Action
 	
 		
                 $sql = "SELECT ";
-	        $sql.= "CONCAT('<a href=\"/Cadastro/index/add\">Novo</a>') AS 'Cadastrar Usuario' , ";
-                $sql.= "CONCAT('<a href=\"/Cadastro/index/list\">Lista</a>') AS 'Listar Usuario' ";
+	        $sql.= "CONCAT('<a href=\"/Cadastro/index/list\">Consultar</a>') AS 'Usuario' , ";
+                $sql.= "CONCAT('<a href=\"/Cadastro/group/list\">Consultar</a>') AS 'Grupo', ";
+                $sql.= "CONCAT('<a href=\"/Cadastro/computer/list\">Consultar</a>') AS 'Computador' ";
               
 
 		$grid = new Application_Model_Grid();
@@ -37,7 +38,7 @@ class Cadastro_IndexController extends Zend_Controller_Action
 			       #$data['password'] = md5($password);
 				$do = new Cadastro_Model_DbTable_User();
 				$do->insert($data);
-				return $this->_helper->redirector('index');
+				return $this->_helper->redirector('list');
 			}
 		}
 
@@ -73,56 +74,31 @@ class Cadastro_IndexController extends Zend_Controller_Action
 				$data = $form->getValues();
 				#$data['password'] = md5($password);
 				$do->update($data);
-				return $this->_helper->redirector('index');
+				return $this->_helper->redirector('list');
 			}
 		}
 		echo $form;
 	}
         public function listAction()
-        {
-/*
-		$sql = "SELECT ";
-		$sql .= "usuario.id, ";
-		$sql .= "usuario.fullname, ";
-		$sql .= "usuario.user, ";
-		$sql .= "usuario.password, ";
-		$sql .= "usuario.email, ";
-		$sql .= "usergroup.name AS grupo ";
-		$sql .= "FROM `usuario` JOIN usergroup ON ( usuario.id_group = usergroup.id) ";
-	
-                $db = Zend_Db_Table::getDefaultAdapter();
-                $result = $db->fetchAll($sql);
+        { 
+		// action body
+		$form = new Cadastro_Form_Newuser();
+		$request = $this->getRequest();
 
-		if($result)
+		if ($this->getRequest()->isPost()) 
 		{
-			echo "<a href=\"/Cadastro/index/add\">adicionar</a>";
-			echo "<table border='1'>\n<thead>\n<tr>\n";
-                        echo "<td>ID</td>\n";
-			echo "<td>nome</td>\n";
-			echo "<td>login</td>\n";
-			echo "<td>grupo</td>\n";
-			echo "<td>editar</td>\n";
-			echo "<td>apagar</td>\n";
-			echo "</tr></thead>\n";
-			foreach($result as $line)
+			if ($form->isValid($request->getPost())) 
 			{
-				echo "<tr>\n";
-                                echo "<td>{$line['id']}</td>\n";
-				echo "<td>{$line['fullname']}</td>\n";
-				echo "<td>{$line['user']}</td>\n";
-				echo "<td>{$line['grupo']}</td>\n";
-				echo "<td><a href=\"/Cadastro/index/update/id/{$line['id']}\">Editar</a></td>\n";
-				echo "<td><a href=\"/Cadastro/index/delete/id/{$line['id']}\">apagar</a></td>\n";
-				echo "</tr>\n";
+				
+				return $this->_helper->redirector('add');
 			}
-                        
-			echo "</table>\n";
-                        echo "<a href=\"/Cadastro/index/index\">Retornar</a>";
-
 		}
-*/
+
+	        $this->view->form = $form;
+                
+	
 		$sql = "SELECT ";
-                $sql .= "CONCAT('<a href=\"/Cadastro/Index/add/''\">Novo</a>') AS 'Cadastrar novo usuario', ";
+#                $sql .= "CONCAT('<a href=\"/Cadastro/Index/add/''\">Novo</a>') AS 'Cadastrar novo usuario', ";
 #		$sql .= "usuario.id, ";
 		$sql .= "usuario.fullname AS 'nome', ";
 		$sql .= "usuario.user AS 'login', ";
@@ -136,7 +112,7 @@ class Cadastro_IndexController extends Zend_Controller_Action
 	
 		$grid = new Application_Model_Grid();
 		$this->view->grade =  $grid->MontarGrade($sql);
-                echo "<a href=\"/Cadastro/Index/index\">Retornar</a>";
+                
     }
 
 }
